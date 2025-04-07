@@ -1,0 +1,19 @@
+﻿@page "/"
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Blazor Rust WebAssembly App</PageTitle>
+
+<h1>Blazor Rust WebAssembly App</h1>
+
+<p>@a + @b = @result</p>
+
+@code {
+    const int a = 43;
+    const int b = 29;
+    int result;
+
+    protected override async Task OnInitializedAsync()
+    {
+        result = await JSRuntime.InvokeAsync<int>("add", a, b);
+    }
+}
