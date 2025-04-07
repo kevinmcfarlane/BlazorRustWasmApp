@@ -6,13 +6,6 @@ let wasm;
  * @returns {number}
  */
 export function add(a, b) {
-    if (typeof wasm !== 'undefined' && wasm !== null) {
-        console.log('wasm is defined');
-    } else {
-        console.log('wasm is not defined');
-    }
-
-
     const ret = wasm.add(a, b);
     return ret;
 }
